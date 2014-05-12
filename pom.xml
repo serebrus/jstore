@@ -16,7 +16,6 @@
           <groupId>org.springframework</groupId>
           <artifactId>spring-webmvc</artifactId>
           <version>${spring.ver}</version>
-          <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
