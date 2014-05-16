@@ -1,9 +1,14 @@
 package uz.micros.jstore.controller;
 
+import com.sun.tracing.dtrace.ModuleAttributes;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import uz.micros.jstore.entity.Author;
+
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by java on 12.05.14.
@@ -13,18 +18,48 @@ public class IndexController {
     @ResponseBody
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showIndex() {
-        return "<center><h2>Privet mir</h2><br /><a href='login'>Login</a></center>";
+        return "<a href=\"fefe\">Login</a>";
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showIndex1() {
-        return "<center><form><input type='text' name='ulgn' /><br /><input type='password' name='upas' /><br /><input type='submit' value='Ok' /><a href='..'>Back</a></form></center>";
+    @RequestMapping(value = "/fefe", method = RequestMethod.GET)
+    public ModelAndView showIndex1(HttpSession session) {
+        Author a = new Author();
+        a.setName("Ipak");
+
+        List<Author> list;
+        if (session.getAttribute("authors") ==null) {
+            list = new ArrayList<Author>();
+            list.add(a);
+            session.setAttribute("authors", list);
+        } else {
+            list = (List<Author>)session.getAttribute("authors");
+        }
+
+        return new ModelAndView("home")
+                .addObject("name", "Hasan")
+                .addObject("author", a)
+                .addObject("authors", list)
+                .addObject("newAuthor", new Author());
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/login?*", method = RequestMethod.GET)
-    public String showIndex2() {
-        return "<center><form method='get'><input type='text' name='ulgn' /><br /><input type='password' name='upas' /><br /><input type='submit' value='Ok' /><a href='..'>Back</a></form><br /></center>";
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+     public String save(@RequestParam String title, HttpSession session) {
+        List<Author> list = (List<Author>)session.getAttribute("authors");
+
+        Author a = new Author();
+        a.setName(title);
+
+        list.add(a);
+
+        return "redirect:/fefe";
+    }
+
+    @RequestMapping(value = "/save2", method = RequestMethod.POST)
+    public String save2(@ModelAttribute Author newAuthor, HttpSession session) {
+        List<Author> list = (List<Author>)session.getAttribute("authors");
+
+        list.add(newAuthor);
+
+        return "redirect:/fefe";
     }
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h2>Thymeleaf</h2>
+    <h3 th:text="${name}">Akbar</h3>
+    <p>My organization is <span th:text="${author.name}"></span></p>
+    <ul>
+        <li th:each="s : ${authors}">
+            Name is <span th:text="${s.name}"></span>
+            Age is <span th:text="${s.age}"></span>
+        </li>
+    </ul>
+
+    <form action="/save" method="post">
+        <input type="text" name="title" />
+        <input type="submit" value="Save" />
+    </form>
+
+    <form action="/save2" method="post" th:object="${newAuthor}">
+        Name:<input type="text" th:field="*{name}" />
+        Age:<input type="text" th:field="*{age}" />
+        <input type="submit" value="Save" />
+    </form>
+</body>
+</html>
