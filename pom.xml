@@ -19,6 +19,12 @@
           <version>${thymeleaf.ver}</version>
     </dependency>
     <dependency>
+          <groupId>nz.net.ultraq.thymeleaf</groupId>
+          <artifactId>thymeleaf-layout-dialect</artifactId>
+          <version>1.2.4</version>
+          <scope>compile</scope>
+    </dependency>
+    <dependency>
           <groupId>javax.servlet.jsp</groupId>
           <artifactId>jsp-api</artifactId>
           <version>2.2</version>

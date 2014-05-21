@@ -1,5 +1,6 @@
 package uz.micros.jstore.config;
 
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
@@ -27,6 +28,8 @@ public class ViewConfig {
     private SpringTemplateEngine templateEngine() {
         SpringTemplateEngine res = new SpringTemplateEngine();
         res.setTemplateResolver(templateResolver());
+        res.addDialect(new LayoutDialect());
+
         return res;
     }
 
