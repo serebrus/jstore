@@ -1,4 +1,12 @@
 .author-name{
+<<<<<<< HEAD
+    background-color: darkseagreen;
+}
+
+.post-date{
+    color:gray;
+=======
     font-family: Arial, Helvetica, sans-serif;
     background-color: darkseagreen;
+>>>>>>> 529754b0b24cfe5fcc85f6d877b2c1cfe9154805
 }
