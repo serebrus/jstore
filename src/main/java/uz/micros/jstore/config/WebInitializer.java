@@ -2,7 +2,6 @@ package uz.micros.jstore.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-<<<<<<< HEAD
 // BOTH METHODS WORK!
 
 /*
@@ -27,23 +26,6 @@ public class WebInitializer implements WebApplicationInitializer {
     }
 }
 */
-=======
-/**
- * Created by java on 12.05.14.
- */
-/*public class WebInitializer implements WebApplicationInitializer {
-    @Override
-    public void onStartup(ServletContext container) throws ServletException {
-        AnnotationConfigWebApplicationContext rootCtx = new AnnotationConfigWebApplicationContext();
-        rootCtx.register(AppConfig.class);
-        container.addListener(new ContextLoaderListener(rootCtx));
-        ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher", new DispatcherServlet(rootCtx));
-        dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/*");
-    }
-}*/
-
->>>>>>> 529754b0b24cfe5fcc85f6d877b2c1cfe9154805
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
@@ -60,8 +42,4 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 529754b0b24cfe5fcc85f6d877b2c1cfe9154805

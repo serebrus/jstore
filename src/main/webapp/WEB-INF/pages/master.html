@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
@@ -12,18 +11,9 @@
           th:href="@{/webjars/bootstrap/3.1.1/css/bootstrap.min.css}" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css"
           href="/resources/css/site.css"/>
-=======
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Master</title>
-    <!--<link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>-->
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.1.1/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" href="/resources/css/site.css" type="text/css" />
->>>>>>> 529754b0b24cfe5fcc85f6d877b2c1cfe9154805
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -35,40 +25,39 @@
         <a class="navbar-brand" href="#">jStore</a>
     </div>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 529754b0b24cfe5fcc85f6d877b2c1cfe9154805
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
             <li class="active"><a th:href="@{/}">Home</a></li>
             <li><a th:href="@{/blog}">Blog</a></li>
             <li><a th:href="@{/forum}">Forum</a></li>
             <li><a th:href="@{/catalog}">Catalog</a></li>
+            <li class="divider"></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">S<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
                     <li><a href="#">Separated link</a></li>
+                    <li class="divider"></li>
                     <li><a href="#">One more separated link</a></li>
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
-<<<<<<< HEAD
-<div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <section layout:fragment="sidebar">
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md2">
+            <section layout:fragment = "sidebar">
 
             </section>
         </div>
         <div class="col-md-10">
-            <section layout:fragment="content">
-                <p>Page content goes here</p>
+            <section layout:fragment = "content">
+
             </section>
         </div>
     </div>
@@ -80,23 +69,5 @@
         th:src="@{/webjars/bootstrap/3.1.1/js/bootstrap.min.js}" rel="stylesheet"></script>
 <script src="/resources/js/site.js" language="JavaScript"/>
 
-=======
-
-<div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <section layout:fragment="sidebar"></section>
-            </div>
-            <div class="col-md-10">
-                <section layout:fragment="content"></section>
-            </div>
-        </div>
-</div>
-<div class="col-md-12"></div>
-
-    <script th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/3.1.1/js/bootstrap.min.js}"></script>
-    <script type="text/javascript" src="/resources/js/site.js"></script>
->>>>>>> 529754b0b24cfe5fcc85f6d877b2c1cfe9154805
 </body>
 </html>
